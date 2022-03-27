@@ -1,4 +1,4 @@
-import './app.css';
+import styles from './app.css';
 import React, { Component } from 'react';
 import VideoList from './Components/videolist';
 

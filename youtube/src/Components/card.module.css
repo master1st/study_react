@@ -1,0 +1,28 @@
+.card_video{
+    display:flex;
+    align-items: center;
+    width: 49%;
+    margin-right:10px;
+    padding:1em;
+    border: 1px solid lightgray;
+    margin-bottom: 0.2em;
+    cursor:pointer;
+    transition:transform 250ms ease-in;
+}
+
+.card_video:hover {
+    transform: scale(1.02);
+}
+
+.card_thumbnail{
+    width:40%;
+}
+.card_title,
+.card_channel {
+    margin:0;
+}
+
+
+.channel {
+    font-size: 0.9rem;
+}
