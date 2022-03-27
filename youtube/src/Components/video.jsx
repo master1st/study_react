@@ -9,7 +9,7 @@ class Video extends Component {
                 <img className={styles.card_thumbnail}
                     src={this.props.item.snippet.thumbnails.medium.url}>
                 </img>
-                <div>
+                <div className={styles.card_textfield}>
                     <p className={styles.card_title}>{this.props.item.snippet.title}</p>
                     <p className={styles.card_channel}>{this.props.item.snippet.channelTitle}</p>
                 </div>

@@ -19,10 +19,13 @@
 }
 .card_title,
 .card_channel {
+    font-size:1.2rem;
     margin:0;
 }
+.card_textfield{
+    margin-left:50px;
+}
 
-
-.channel {
+.card_channel {
     font-size: 0.9rem;
 }
