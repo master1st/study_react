@@ -1,7 +1,21 @@
-.form{
+.logo{
     display:flex;
+    align-items:center;
+}
+.youtube{
+    font-size:3em;
+    margin:0px 1rem 0px 0.2rem;
+    color:aliceblue;
+}
+.input{
+    margin:0px;
+    width:90rem;
+}
+.form{
+    background-color:black;
+    display:flex;
+    flex-direction:row;
+    height:4rem;
+    padding: 0.5rem 1rem
 }
 
-.mainbtn{
-    
-}

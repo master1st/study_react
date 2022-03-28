@@ -11,14 +11,16 @@ class InputFiled extends Component {
     }
     render() {
         return (
-            <form className={styles.form}onSubmit={this.handleSubmit}>
-                    <i class="fa-brands fa-youtube"></i>
-                    <span className={styles.mainbtn}>YouTube</span>
+            <form className={styles.form} onSubmit={this.handleSubmit}>
+                <div className={styles.logo}>
+                    <img className={styles.logo_img} src="/images/youtube_logo.jpg"></img>
+                    <h1 className={styles.youtube}>Youtube</h1>
+                </div>
                 <input className={styles.input}
                     type="text"
                     ref={this.inputRef}
-                 />
-                <button className={styles.searchbtn}><i class="fa-solid fa-magnifying-glass"></i></button>
+                />
+                <img className={styles.search} src="/images/search_logo.png"></img>
 
             </form>
         );
