@@ -13,14 +13,14 @@ class InputFiled extends Component {
         return (
             <form className={styles.form} onSubmit={this.handleSubmit}>
                 <div className={styles.logo}>
-                    <img className={styles.logo_img} src="/images/youtube_logo.jpg"></img>
-                    <h1 className={styles.youtube}>Youtube</h1>
+                    <img className={styles.img} src="/images/logo.png"></img>
+                    <h1 className={styles.text}>Youtube</h1>
                 </div>
                 <input className={styles.input}
                     type="text"
                     ref={this.inputRef}
                 />
-                <img className={styles.search} src="/images/search_logo.png"></img>
+                <img className={styles.search} src="/images/search.png"></img>
 
             </form>
         );
