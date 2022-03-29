@@ -2,6 +2,7 @@ import styles from './app.css';
 import React, { Component } from 'react';
 import VideoList from './Components/videolist';
 import InputFiled from './Components/inputFiled';
+import Videodetail from './Components/videodetail';
 
 
 class App extends Component {

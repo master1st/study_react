@@ -3,18 +3,22 @@ import React, { Component } from 'react';
 import styles from './card.module.css'
 import Videodetail from './videodetail';
 class Video extends Component {
-
-    showVideo = (e) => {
-        console.log(e.target)
-    }
+constructor(props){
+    super(props);
+    this.state = 
+    {id : '0'}
+} 
+    showVideo = () => {
+     this.setState({id : this.props.item.id})
+    };
     render() {
-        const url = "http://www.youtube.com/embed/"
-        const src = url.concat(this.props.item.id)
+        let showVideoVar;
+        if (this.state.id){
+            showVideoVar = <Videodetail videoId={this.state.id}/>
+        }
         return (
             <>
-                <iframe id="player" type="text/html" width="640" height="360"
-                    src={src}
-                    frameborder="0"></iframe>
+               
                 <li className={styles.card_video} onClick={this.showVideo}>
                     <img className={styles.card_thumbnail}
                         src={this.props.item.snippet.thumbnails.medium.url}>
@@ -24,6 +28,7 @@ class Video extends Component {
                         <p className={styles.card_channel}>{this.props.item.snippet.channelTitle}</p>
                     </div>
                 </li>
+                {showVideoVar}
             </>
         );
     }
