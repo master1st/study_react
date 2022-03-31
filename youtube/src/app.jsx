@@ -11,28 +11,10 @@ class App extends Component {
     this.state = {
       error: null,
       isLoaded: false,
-      items: []
-    };
+      items: [],
+        };
   }
 
-  inputFiled = (text) => {
-    fetch(`https://www.googleapis.com/youtube/v3/search?key=AIzaSyCLyt5QUm5cWIxi2lQZTZ5YjfrmJviMPqI&part=snippet&maxResult=25&q=${text}`)
-    .then(res => res.json())
-    .then(
-      (result) => {
-        this.setState({
-          isLoaded: true,
-          items: result.items
-        });
-      },
-      (error) => {
-        this.setState({
-          isLoaded: true,
-          error
-        });
-      }
-    )
-  }
   componentDidMount() {
     fetch("https://www.googleapis.com/youtube/v3/videos?key=AIzaSyCLyt5QUm5cWIxi2lQZTZ5YjfrmJviMPqI&part=snippet&chart=mostPopular&maxResults=25")
       .then(res => res.json())
@@ -50,8 +32,20 @@ class App extends Component {
           });
         }
       )
-  
-  
+  }
+  //아래부분 json의 데이터를 map을 이용해 변형시켜 처리한 부분은 배울점.
+  //then 안에서의 자유로운 코드작성 및 변형
+  inputFiled = (text) => {
+    fetch(`https://www.googleapis.com/youtube/v3/search?key=AIzaSyCLyt5QUm5cWIxi2lQZTZ5YjfrmJviMPqI&part=snippet&maxResults=25&type=video&q=${text}`)
+    .then(res => res.json())
+    .then(result => 
+        result.items.map(item => ({ ...item ,id: item.id.videoId}))
+    )
+    .then(items => 
+        this.setState({
+          items: items,
+        }))
+    
   }
   render() {
     const { error, isLoaded, items } = this.state;
