@@ -40,7 +40,7 @@ class App extends Component {
         (result) => {
           this.setState({
             isLoaded: true,
-            items: result.items
+            items: result.items,
           });
         },
         (error) => {

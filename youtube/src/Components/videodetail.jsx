@@ -10,6 +10,7 @@ class Videodetail extends Component {
                 <iframe id="player" type="text/html" width="640" height="360"
                     src={src}
                     frameborder="0"></iframe>
+                
             </div>
         );
     }
