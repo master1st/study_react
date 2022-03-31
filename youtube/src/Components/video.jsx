@@ -3,23 +3,23 @@ import React, { Component } from 'react';
 import styles from './card.module.css'
 import Videodetail from './videodetail';
 class Video extends Component {
-constructor(props){
-    super(props);
-    this.state = 
-    {id : '0'}
-} 
-    showVideo = () => {
-     this.setState({id : this.props.item.id})
-    };
+// constructor(props){
+//     super(props);
+//     this.state = 
+//     {id : '0'}
+// } 
+//     showVideo = () => {
+//      this.setState({id : this.props.item.id})
+//     };
     render() {
-        let showVideoVar;
-        if (this.state.id){
-            showVideoVar = <Videodetail videoId={this.state.id}/>
-        }
+        // let showVideoVar;
+        // if (this.state.id){
+        //     showVideoVar = <Videodetail key={this.state.id} videoId={this.state.id}/>
+        // }
         return (
             <>
                
-                <li className={styles.card_video} onClick={this.showVideo}>
+                <li className={styles.card_video} onClick={this.props.showVideo(this.props.item.id)}>
                     <img className={styles.card_thumbnail}
                         src={this.props.item.snippet.thumbnails.medium.url}>
                     </img>

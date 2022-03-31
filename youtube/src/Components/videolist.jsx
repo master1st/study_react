@@ -3,25 +3,31 @@ import Video from './video';
 import Videodetail from './videodetail';
 import styles from './videolist_card.module.css'
 class VideoList extends Component {
-// state ={
-//   id : '0'
-// }
+  constructor(props){
+    super(props);
+    this.state = 
+    {id : '0'}
+  }
 
-//   showVideo = (id) => {
-//     this.state.id = id
-//     };
-    
-    
+  showVideo = (id) => {
+    console.log(id)
+    this.setState({id})
+   };
+
   render() {
-    // const url = "http://www.youtube.com/embed/"
-    // const src = url.concat(this.state.id)
-    // console.log(src)
+    let showVideoVar;
+        if (this.state.id){
+            showVideoVar = <Videodetail key={this.state.id} videoId={this.state.id}/>
+        }
+
     return (
       <ul className={styles.video_list}>
         {this.props.items.map(item => 
           <Video key={item.id} item={item}
-          showVideo={this.showVideo}/>
+          showVideo={this.showVideo}
+          />
         )}
+        {showVideoVar}
       </ul>
     );
   }
