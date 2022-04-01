@@ -1,4 +1,4 @@
-import styles from './app.css';
+import styles from './app.module.css';
 import React, { Component } from 'react';
 import VideoList from './Components/videolist';
 import InputFiled from './Components/inputFiled';
@@ -6,15 +6,19 @@ import Videodetail from './Components/videodetail';
 
 
 class App extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
       error: null,
       isLoaded: false,
       items: [],
-        };
+      id : '0' , item : false
+    };
   }
 
+  showVideo = (item,id) => {
+    item && this.setState({id : id , item:true});
+  }
   componentDidMount() {
     fetch("https://www.googleapis.com/youtube/v3/videos?key=AIzaSyCLyt5QUm5cWIxi2lQZTZ5YjfrmJviMPqI&part=snippet&chart=mostPopular&maxResults=25")
       .then(res => res.json())
@@ -37,24 +41,38 @@ class App extends Component {
   //then 안에서의 자유로운 코드작성 및 변형
   inputFiled = (text) => {
     fetch(`https://www.googleapis.com/youtube/v3/search?key=AIzaSyCLyt5QUm5cWIxi2lQZTZ5YjfrmJviMPqI&part=snippet&maxResults=25&type=video&q=${text}`)
-    .then(res => res.json())
-    .then(result => 
-        result.items.map(item => ({ ...item ,id: item.id.videoId}))
-    )
-    .then(items => 
+      .then(res => res.json())
+      .then(result =>
+        result.items.map(item => ({ ...item, id: item.id.videoId }))
+      )
+      .then(items =>
         this.setState({
           items: items,
         }))
-    
   }
   render() {
+
+    let showVideoVar;
+    if (this.state.item && this.state.id){
+        showVideoVar = <Videodetail videoId={this.state.id} />
+    }
+    console.log(this.state.item)
+
+
     const { error, isLoaded, items } = this.state;
-      return (
-        <div>
-        <InputFiled query = {this.inputFiled}/>
-        <VideoList items = {items} />
-        </div>
-      );
+    return (
+      <div className={styles.app}>
+        <InputFiled query={this.inputFiled} />
+        <section className={styles.content}>
+          {this.state.item && <div className={styles.detail}>
+            {showVideoVar}
+          </div>}
+          <div className={styles.list}>
+          <VideoList items={items} showVideo={this.showVideo}/>
+          </div>
+        </section>
+      </div>
+    );
   }
 }
 

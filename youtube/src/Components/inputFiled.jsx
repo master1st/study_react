@@ -9,10 +9,13 @@ class InputFiled extends Component {
         const text = this.inputRef.current.value;
         text && this.props.query(text);
     }
+    handlereLoad = () => {
+        window.location.reload();
+    }
     render() {
         return (
             <form className={styles.form} onSubmit={this.handleSubmit}>
-                <div className={styles.logo}>
+                <div className={styles.logo} onClick={this.handlereLoad}>
                     <img className={styles.img} src="/images/logo.png"></img>
                     <h1 className={styles.text}>Youtube</h1>
                 </div>

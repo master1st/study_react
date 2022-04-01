@@ -1,6 +1,6 @@
 .video_list{
-    display: flex;
+    display:flex;
     flex-wrap: wrap;
     list-style: none;
-    padding-left:none;
+    padding-left: 0;
 }
