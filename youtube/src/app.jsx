@@ -56,9 +56,7 @@ class App extends Component {
     if (this.state.item && this.state.id){
         showVideoVar = <Videodetail videoId={this.state.id} />
     }
-    console.log(this.state.item)
-
-
+    
     const { error, isLoaded, items } = this.state;
     return (
       <div className={styles.app}>
@@ -68,7 +66,8 @@ class App extends Component {
             {showVideoVar}
           </div>}
           <div className={styles.list}>
-          <VideoList items={items} showVideo={this.showVideo}/>
+          <VideoList items={items} showVideo={this.showVideo}
+          display={this.state.item ? 'list' : 'grid' }/>
           </div>
         </section>
       </div>

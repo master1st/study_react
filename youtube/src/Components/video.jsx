@@ -3,18 +3,14 @@ import React, { Component } from 'react';
 import styles from './card.module.css'
 import Videodetail from './videodetail';
 class Video extends Component {
-    state ={
-        display : 'grid'
-    }
 
     setClickListen = (item) => {
-        const displayType = item ? 'list' : 'grid';
-        this.setState({display: displayType})
        this.props.showVideo(item,this.props.item.id);
        
     }   
     render() { 
-        const displayType = this.state.display === 'list' ? styles.list : styles.grid;
+        const displayType = this.props.display === 'list' ? styles.list : styles.grid;
+
         return (
                 <li className={`${styles.video} ${displayType}`} onClick={this.setClickListen}>
                     <div className={styles.card_video}>

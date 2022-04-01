@@ -1,4 +1,5 @@
 .video {
+    width:50%;
     padding: 0.2em;
 }
 .video.grid {
@@ -9,7 +10,6 @@
     width: 100%;
    
 }
-
 .card_video{
     display:flex;
     align-items: center;
