@@ -54,7 +54,8 @@ class App extends Component {
 
     let showVideoVar;
     if (this.state.item && this.state.id){
-        showVideoVar = <Videodetail videoId={this.state.id} />
+      const video = this.state.items.filter(item => item.id === this.state.id)
+        showVideoVar = <Videodetail videoId={this.state.id} video={video}/>
     }
     
     const { error, isLoaded, items } = this.state;
