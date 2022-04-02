@@ -1,7 +1,5 @@
-import { toHaveFocus } from '@testing-library/jest-dom/dist/matchers';
 import React, { Component } from 'react';
 import styles from './card.module.css'
-import Videodetail from './videodetail';
 class Video extends Component {
 
     setClickListen = (item) => {
