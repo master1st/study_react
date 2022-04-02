@@ -11,11 +11,10 @@ class Videodetail extends Component {
                 <iframe id="player" type="text/html" width="1000" height="570"
                     src={src}
                     frameborder="0"></iframe>
-                <h2>{this.props.video[0].snippet.title} </h2>
-                <p>{this.props.video[0].snippet.publishedAt}</p>
-                <p>{this.props.video[0].snippet.channelTitle}</p>
-                <br />
-                {this.props.video[0].snippet.description}
+                <h1 className={styles.text}>{this.props.video[0].snippet.title}</h1>
+                <h3 className={styles.text}>{this.props.video[0].snippet.channelTitle}</h3>
+                <span className={styles.text}>{this.props.video[0].snippet.publishedAt}</span>
+                <p className={styles.text}>{this.props.video[0].snippet.description}</p>
             </div>
         );
     }
