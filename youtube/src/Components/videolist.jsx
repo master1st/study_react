@@ -5,9 +5,9 @@ import styles from './videolist_card.module.css'
 class VideoList extends Component {
   
  
-  showVideo = (item, id) => 
+  showVideo = (item,id,channelId,click) => 
   {
-    this.props.showVideo(item,id);
+    this.props.showVideo(item,id,channelId,click);
    };
 
   render() {

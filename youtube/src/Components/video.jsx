@@ -3,9 +3,9 @@ import styles from './card.module.css'
 class Video extends Component {
 
     setClickListen = (item) => {
-       this.props.showVideo(item,this.props.item.id);
+       this.props.showVideo(item,this.props.item.id,this.props.item.snippet.channelId,true);
        
-    }   
+    }
     render() { 
         const displayType = this.props.display === 'list' ? styles.list : styles.grid;
 
