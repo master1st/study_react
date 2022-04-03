@@ -3,11 +3,6 @@ import styles from './card.module.css'
 class Videodetail extends Component {
 constructor(props){
     super(props);
-    this.state ={
-        items : [], 
-        isLoaded : false,
-        error:null
-    };
 }
     
     render() {
